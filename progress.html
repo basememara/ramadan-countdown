@@ -33,94 +33,140 @@
 <div class="btn-group btn-group-justified" role="group" style="position: absolute; bottom: 0;">
     <div class="btn-group" role="group">
         <a href="index.html" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-hourglass"></span> Timer
+            <span class="glyphicon glyphicon-hourglass"></span>
+            <br>
+            Timer
         </a>
     </div>
     <div class="btn-group" role="group">
-        <a href="tips.html" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-ok-circle"></span> Tips
+        <a href="tips.html" class="btn btn-default btn-lg btn-tips">
+            <span class="glyphicon glyphicon-ok-circle"></span>
+            <br>
+            Tips
         </a>
     </div>
     <div class="btn-group" role="group">
         <a href="http://www.zakat.org/donate/zakat-calculator/" class="btn btn-default btn-lg" target="_blank">
-            <span class="glyphicon glyphicon-usd"></span> Zakat
+            <span class="glyphicon glyphicon-usd"></span>
+            <br>
+            Zakat
         </a>
     </div>
 </div>
 
+<div class="modal fade" id="tips-modal" tabindex="-1" role="dialog" aria-labelledby="tips-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tell me something cool...</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="monthly-modal" tabindex="-1" role="dialog" aria-labelledby="monthly-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Reminders for <span></span></h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Snooze for 2 hours</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I've done this!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script>
+<script src="js/tabletop.js"></script>
+<script src="js/random-reminders.js"></script>
 <script>
-    $("#chart").kendoChart({
-        title: {
-            text: 'Ramadan Preparation Progress'
-        },
-        legend: {
-            position: 'bottom',
-            labels: {
-                color: "#fff"
-            }
-        },
-        chartArea: {
-            background: ''
-        },
-        seriesDefaults: {
-            type: 'line',
-            style: 'smooth'
-        },
-        series: [{
-            name: 'Read Qur\'an',
-            data: [3.907, 7.943, 7.848, 9.284, 9.263, 9.801, 3.890, 8.238, 9.552, 6.855, 3.994, 3.464]
-        },{
-            name: 'Extra Fasting',
-            data: [1.988, 2.733, 3.994, 3.464, 4.001, 3.939, 1.333, -2.245, 4.339, 2.727, 6.376, 8.153]
-        },{
-            name: 'Extra Prayers',
-            data: [4.743, 7.295, 7.175, 6.376, 8.153, 8.535, 5.247, -7.832, 4.3, 4.3, 0.362, -3.519]
-        },{
-            name: 'Charity',
-            data: [-0.253, 0.362, -3.519, 1.799, 2.252, 3.343, 0.843, 2.877, -5.416, 5.590, 3.343, 0.843]
-        }],
-        valueAxis: {
-            labels: {
+    (function () {
+        $('#chart').kendoChart({
+            title: {
+                text: 'Ramadan Preparation Progress'
+            },
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: "#fff"
+                }
+            },
+            chartArea: {
+                background: ''
+            },
+            seriesDefaults: {
+                type: 'line',
+                style: 'smooth'
+            },
+            series: [{
+                name: 'Read Qur\'an',
+                data: [3.907, 7.943, 7.848, 9.284, 9.263, 9.801, 3.890, 8.238, 9.552, 6.855, 3.994, 3.464]
+            },{
+                name: 'Extra Fasting',
+                data: [1.988, 2.733, 3.994, 3.464, 4.001, 3.939, 1.333, -2.245, 4.339, 2.727, 6.376, 8.153]
+            },{
+                name: 'Extra Prayers',
+                data: [4.743, 7.295, 7.175, 6.376, 8.153, 8.535, 5.247, -7.832, 4.3, 4.3, 0.362, -3.519]
+            },{
+                name: 'Charity',
+                data: [-0.253, 0.362, -3.519, 1.799, 2.252, 3.343, 0.843, 2.877, -5.416, 5.590, 3.343, 0.843]
+            }],
+            valueAxis: {
+                labels: {
+                    format: '{0}%',
+                    color: '#fff'
+                },
+                line: {
+                    visible: false
+                },
+                axisCrossingValue: -10
+            },
+            categoryAxis: {
+                categories: [
+                    'Muḥarram',
+                    'Ṣafar',
+                    'Rabī‘ I',
+                    'Rabī‘ II',
+                    'Jumādá I',
+                    'Jumādá I',
+                    'Jumādá II',
+                    'Rajab',
+                    'Sha‘bān',
+                    'Ramaḍān',
+                    'Shawwāl',
+                    'Dhū al-Qa‘dah',
+                    'Dhū al-Ḥijjah'
+                ],
+                majorGridLines: {
+                    visible: false
+                },
+                labels: {
+                    rotation: -45,
+                    color: '#fff'
+                }
+            },
+            tooltip: {
+                visible: true,
                 format: '{0}%',
-                color: '#fff'
-            },
-            line: {
-                visible: false
-            },
-            axisCrossingValue: -10
-        },
-        categoryAxis: {
-            categories: [
-                'Muḥarram',
-                'Ṣafar',
-                'Rabī‘ I',
-                'Rabī‘ II',
-                'Jumādá I',
-                'Jumādá I',
-                'Jumādá II',
-                'Rajab',
-                'Sha‘bān',
-                'Ramaḍān',
-                'Shawwāl',
-                'Dhū al-Qa‘dah',
-                'Dhū al-Ḥijjah'
-            ],
-            majorGridLines: {
-                visible: false
-            },
-            labels: {
-                rotation: -45,
-                color: '#fff'
+                template: '#= series.name #: #= value #'
             }
-        },
-        tooltip: {
-            visible: true,
-            format: '{0}%',
-            template: '#= series.name #: #= value #'
-        }
-    });
+        });
+    })();
 </script>
 </body>
 </html>

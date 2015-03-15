@@ -35,7 +35,7 @@
 
                     <div class="text">
                         <p class="val">0</p>
-                        <p class="type-days type-time">DAYS</p>
+                        <p class="type-days type-time">DAYS<br>UNTIL<br>RAMADAN</p>
                     </div><!-- /.text -->
                 </div><!-- /.inner -->
             </div><!-- /.wrap -->
@@ -85,18 +85,59 @@
 <div class="btn-group btn-group-justified" role="group" style="position: absolute; bottom: 0;">
     <div class="btn-group" role="group">
         <a href="progress.html" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-equalizer"></span> Progress
+            <span class="glyphicon glyphicon-equalizer"></span>
+            <br>
+            Progress
         </a>
     </div>
     <div class="btn-group" role="group">
-        <a href="tips.html" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-ok-circle"></span> Tips
+        <a href="#" class="btn btn-default btn-lg btn-tips">
+            <span class="glyphicon glyphicon-ok-circle"></span>
+            <br>
+            Tips
         </a>
     </div>
     <div class="btn-group" role="group">
         <a href="http://www.zakat.org/donate/zakat-calculator/" class="btn btn-default btn-lg" target="_blank">
-            <span class="glyphicon glyphicon-usd"></span> Zakat
+            <span class="glyphicon glyphicon-usd"></span>
+            <br>
+            Zakat
         </a>
+    </div>
+</div>
+
+<div class="modal fade" id="tips-modal" tabindex="-1" role="dialog" aria-labelledby="tips-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tell me something cool...</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="monthly-modal" tabindex="-1" role="dialog" aria-labelledby="monthly-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Reminders for <span></span></h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Snooze for 2 hours</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">I've done this!</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -106,16 +147,20 @@
 <script src="js/kinetic.js"></script>
 <script src="js/jquery.final-countdown.min.js"></script>
 <script src="js/hijricalendar-kuwaiti.js"></script>
+<script src="js/tabletop.js"></script>
+<script src="js/random-reminders.js"></script>
 <script>
-	$('.countdown').final_countdown({
-        'start': moment('2014-06-29').unix(),
-        'end': moment('2015-07-19').unix(),
-        'now': moment().unix()
-    });
+    (function () {
+        $('.countdown').final_countdown({
+            'start': moment('2014-06-29').unix(),
+            'end': moment('2015-07-19').unix(),
+            'now': moment().unix()
+        });
 
-    $('.clock-seconds, .clock-minutes, .clock-hours').hide();
+        $('.clock-seconds, .clock-minutes, .clock-hours').hide();
 
-    $('.hijri-date').html(writeIslamicDate());
+        $('.hijri-date').html(writeIslamicDate());
+    })();
 </script>
 
 </body>
