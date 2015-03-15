@@ -26,6 +26,8 @@
     <span class="glyphicon glyphicon-cog"></span>
 </a>
 
+<br><br>
+
 <div id="chart"></div>
 
 <div class="btn-group btn-group-justified" role="group" style="position: absolute; bottom: 0;">
@@ -55,7 +57,9 @@
         },
         legend: {
             position: 'bottom',
-            color: '#fff'
+            labels: {
+                color: "#fff"
+            }
         },
         chartArea: {
             background: ''
@@ -79,13 +83,13 @@
         }],
         valueAxis: {
             labels: {
-                format: '{0}%'
+                format: '{0}%',
+                color: '#fff'
             },
             line: {
                 visible: false
             },
-            axisCrossingValue: -10,
-            color: '#fff'
+            axisCrossingValue: -10
         },
         categoryAxis: {
             categories: [
@@ -106,9 +110,9 @@
             majorGridLines: {
                 visible: false
             },
-            color: '#fff',
             labels: {
-                rotation: -45
+                rotation: -45,
+                color: '#fff'
             }
         },
         tooltip: {
