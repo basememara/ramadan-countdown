@@ -8,15 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Ramadan Countdown</title>
 </head>
 
 <body>
 
+<a href="tips.html" class="btn btn-default" style="position: absolute; top: 5px; left: 5px;">
+    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Tips
+</a>
+
+<a href="settings.html" class="btn btn-default" style="position: absolute; top: 5px; right: 5px;">
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings
+</a>
+
 <div class="countdown countdown-container container">
+
     <div class="clock row">
         <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
             <div class="wrap">
@@ -72,17 +80,25 @@
     </div><!-- /.clock -->
 </div><!-- /.countdown-wrapper -->
 
+<a href="progress.html" class="btn btn-default" style="position: absolute; bottom: 5px; left: 5px;">
+    <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Progress
+</a>
 
+<a href="zakat.html" class="btn btn-default" style="position: absolute; bottom: 5px; right: 5px;">
+    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zakat
+</a>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/kinetic.js"></script>
-<script type="text/javascript" src="js/jquery.final-countdown.min.js"></script>
-<script type="text/javascript">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/kinetic.js"></script>
+<script src="js/jquery.final-countdown.min.js"></script>
+<script>
 	$('.countdown').final_countdown({
         'start': 1362139200,
         'end': 1388461320,
         'now': 1387461319        
     });
+
+    $('.clock-seconds, .clock-minutes, .clock-hours').hide();
 </script>
 
 </body>
