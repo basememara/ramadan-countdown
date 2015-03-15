@@ -71,3 +71,17 @@ body {
 		margin: 0px 30px 30px 30px;
 	}
 }
+
+.btn {
+    border-radius: 0;
+}
+
+.hijri-date {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 65px;
+    font-weight: bold;
+}

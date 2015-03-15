@@ -5,7 +5,11 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
 
     <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -15,13 +19,11 @@
 
 <body>
 
-<a href="tips.html" class="btn btn-default" style="position: absolute; top: 5px; left: 5px;">
-    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Tips
+<a href="settings.html" class="btn btn-default" style="position: absolute; top: 5px; right: 5px;">
+    <span class="glyphicon glyphicon-cog"></span>
 </a>
 
-<a href="settings.html" class="btn btn-default" style="position: absolute; top: 5px; right: 5px;">
-    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings
-</a>
+<span class="hijri-date"></span>
 
 <div class="countdown countdown-container container">
 
@@ -80,25 +82,40 @@
     </div><!-- /.clock -->
 </div><!-- /.countdown-wrapper -->
 
-<a href="progress.html" class="btn btn-default" style="position: absolute; bottom: 5px; left: 5px;">
-    <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Progress
-</a>
-
-<a href="zakat.html" class="btn btn-default" style="position: absolute; bottom: 5px; right: 5px;">
-    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zakat
-</a>
+<div class="btn-group btn-group-justified" role="group" style="position: absolute; bottom: 0;">
+    <div class="btn-group" role="group">
+        <a href="progress.html" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-equalizer"></span> Progress
+        </a>
+    </div>
+    <div class="btn-group" role="group">
+        <a href="tips.html" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-ok-circle"></span> Tips
+        </a>
+    </div>
+    <div class="btn-group" role="group">
+        <a href="http://www.zakat.org/donate/zakat-calculator/" class="btn btn-default btn-lg" target="_blank">
+            <span class="glyphicon glyphicon-usd"></span> Zakat
+        </a>
+    </div>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="js/kinetic.js"></script>
 <script src="js/jquery.final-countdown.min.js"></script>
+<script src="js/hijricalendar-kuwaiti.js"></script>
 <script>
 	$('.countdown').final_countdown({
-        'start': 1362139200,
-        'end': 1388461320,
-        'now': 1387461319        
+        'start': moment('2014-06-29').unix(),
+        'end': moment('2015-07-19').unix(),
+        'now': moment().unix()
     });
 
     $('.clock-seconds, .clock-minutes, .clock-hours').hide();
+
+    $('.hijri-date').html(writeIslamicDate());
 </script>
 
 </body>

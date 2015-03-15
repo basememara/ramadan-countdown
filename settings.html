@@ -5,7 +5,11 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -20,6 +24,10 @@
 </head>
 
 <body>
+
+<a href="settings.html" class="btn btn-default" style="position: absolute; top: 5px; right: 5px;">
+    <span class="glyphicon glyphicon-cog"></span>
+</a>
 
 <form>
     <div class="form-group">
@@ -37,6 +45,23 @@
     <button type="submit" class="btn btn-danger pull-right">Submit</button>
 </form>
 
+<div class="btn-group btn-group-justified" role="group" style="position: absolute; bottom: 0;">
+    <div class="btn-group" role="group">
+        <a href="index.html" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-equalizer"></span> Countdown
+        </a>
+    </div>
+    <div class="btn-group" role="group">
+        <a href="tips.html" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-ok-circle"></span> Tips
+        </a>
+    </div>
+    <div class="btn-group" role="group">
+        <a href="http://www.zakat.org/donate/zakat-calculator/" class="btn btn-default btn-lg" target="_blank">
+            <span class="glyphicon glyphicon-usd"></span> Zakat
+        </a>
+    </div>
+</div>
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
